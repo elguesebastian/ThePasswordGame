@@ -1,34 +1,29 @@
 # Definición de reglas
 def regla1(contraseña):
-    if len(contraseña) > 8:
-        return True
-    else:
-        return False
-
-def regla2(contraseña):
-    tiene_numero = False
-    for char in contraseña:
-        if char.isdigit():
-            tiene_numero = True
-    return tiene_numero
-
-def regla3(contraseña):
-    tiene_simbolo = False
-    simbolos = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~"
+    if len(contraseña) <= 8:
+        return False 
     
-    for char in contraseña:
-        if char in simbolos:
-            tiene_simbolo = True
-    return tiene_simbolo
-
-def regla4(contraseña):
     tiene_mayuscula = False
     for char in contraseña:
         if char.isupper():
             tiene_mayuscula = True
     return tiene_mayuscula
+    
+def regla2(contraseña):
+    tiene_simbolo = False
+    tiene_numero = False
+    simbolos = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~"
+ 
+    for char in contraseña:
+        if char in simbolos:
+            tiene_simbolo = True
+        
+        if char.isdigit():
+            tiene_numero = True
+    
+    return tiene_simbolo and tiene_numero
 
-def regla5(contraseña):
+def regla3(contraseña):
     suma = 0
     for char in contraseña:
         if char.isdigit():
@@ -38,7 +33,7 @@ def regla5(contraseña):
     else:
         return False
 
-def regla6(contraseña):
+def regla4(contraseña):
     jugadores = ["MESSI", "DI MARIA", "DE PAUL", "OTAMENDI", "MARTINEZ", "ALVAREZ", 
              "MAC ALLISTER", "FERNANDEZ", 
              "MOLINA", "ROMERO", "ACUÑA", "TAGLIAFICO", "PAREDES", "PEZZELLA",
@@ -50,14 +45,14 @@ def regla6(contraseña):
             contiene_apellido = True
     return contiene_apellido
 
-def regla7(contraseña):
+def regla5(contraseña):
     tiene_secuencia = False
     for i in range(len(contraseña) - 2):
         if contraseña[i] == contraseña[i+1] == contraseña[i+2]:
             tiene_secuencia = True
     return tiene_secuencia
 
-def regla8(contraseña):
+def regla6(contraseña):
     acierta_numero = False
     numero_acertijo = "5"
     for char in contraseña:
@@ -67,14 +62,12 @@ def regla8(contraseña):
 
 # Lista de reglas
 reglas = [
-    ("Debe tener más de 8 caracteres.", regla1),
-    ("Debe incluir al menos un número.", regla2),
-    ("Debe contener al menos un símbolo (!, @, etc.).", regla3),
-    ("Debe tener al menos una letra mayúscula.", regla4),
-    ("La suma de los números debe ser mayor a 20.", regla5),
-    ("Debe contener el apellido de un campeón del mundo de la selección argentina.", regla6),
-    ("Debe tener una secuencia de tres letras iguales seguidas.", regla7),
-    ("El doble de 3 más la mitad de 8, menos 5", regla8)
+    ("Debe tener contener más de 8 caracteres y al menos una letra mayúscula", regla1),
+    ("Debe contener al menos un número y un símbolo (!, @, etc.).", regla2),
+    ("La suma de los números debe ser mayor a 20.", regla3),
+    ("Debe contener el apellido de un campeón del mundo de la selección argentina.", regla4),
+    ("Debe tener una secuencia de tres letras iguales seguidas.", regla5),
+    ("El doble de 3 más la mitad de 8, menos 5", regla6)
 ]
 
 def verificar_reglas(contraseña, reglas_aplicadas):
@@ -84,20 +77,17 @@ def verificar_reglas(contraseña, reglas_aplicadas):
             errores.append(descripcion)
     return errores
 
-def jugar_contraseña():
-    reglas_aplicadas = [reglas[0]]  # Empieza la primera regla
+def jugar():
+    reglas_aplicadas = [reglas[0]]  # Arranca con la primer regla
     ronda = 1
-    juego_terminado = False  #Variable que controla si el juego termino
+    juego_terminado = False
+    print("\nThe Password Game:")
+    print(f"Regla: {reglas_aplicadas[-1][0]}")
 
-    while not juego_terminado:
-        print("The Password Game:")
-        print(f"\nRonda {ronda}:")
+    while juego_terminado == False:
+        print(f"Ronda {ronda}:")
         
-        # Muestra siempre las reglas actuales
-        for i in range(len(reglas_aplicadas)):
-            print(f"Regla {i+1}: {reglas_aplicadas[i][0]}")
-        
-        # Pide una contraseña
+        # Pedir contraseña
         contraseña = input("Introduce una contraseña: ")
         
         # Verifica las reglas
@@ -106,7 +96,7 @@ def jugar_contraseña():
         if len(errores) == 0:
             print("\n¡Contraseña correcta!")
             
-            # Agrega nueva regla si quedan reglas para acertar
+            # Agrega nueva regla si quedan reglas por ganar
             if len(reglas_aplicadas) < len(reglas):
                 reglas_aplicadas.append(reglas[len(reglas_aplicadas)])
                 print(f"Nueva regla añadida: {reglas_aplicadas[-1][0]}\n")
@@ -122,4 +112,4 @@ def jugar_contraseña():
             # No cambia la ronda, el juego sigue en la misma ronda hasta que se cumplan todas las reglas anteriores.
 
 # Inicia el juego
-jugar_contraseña()
+jugar()
