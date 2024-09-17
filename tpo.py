@@ -1,8 +1,5 @@
-from colorama import Fore, Back, Style, init
 from reglas import regla1, regla2, regla3, regla4, regla5, regla6
 from funciones import jugar
-
-init(autoreset=True)
 
 
 # Llamado a las reglas
