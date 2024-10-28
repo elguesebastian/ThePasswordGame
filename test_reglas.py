@@ -1,6 +1,7 @@
 import unittest
 from reglas import regla1, regla2, regla3, regla4, regla5, regla6
 
+
 class TestReglas(unittest.TestCase):
 
     def test_regla1(self):
@@ -44,6 +45,7 @@ class TestReglas(unittest.TestCase):
         self.assertTrue(regla6("Password5"))
         # Contraseña inválida: no contiene el número '5'
         self.assertFalse(regla6("Password3"))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -6,12 +6,14 @@ from mensajes import (
 
 init(autoreset=True)
 
+
 def verificar_reglas(contraseña, reglas_aplicadas):
     errores = []
     for descripcion, regla in reglas_aplicadas:
         if not regla(contraseña):
             errores.append(descripcion)
     return errores
+
 
 def jugar(reglas):
     reglas_aplicadas = [reglas[0]]  # Arranca con la primera regla
