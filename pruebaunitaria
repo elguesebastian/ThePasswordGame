@@ -1,3 +1,3 @@
-cd "C:\Users\sebae\OneDrive\Escritorio\TPO Passweord\ThePasswordGame"
+cd "C:\Users\sebae\OneDrive\Escritorio\ThePasswordGame"
 
 python -m unittest test_reglas.py

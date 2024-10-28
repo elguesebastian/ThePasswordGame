@@ -33,7 +33,7 @@ def jugar(reglas):
         if not errores:
             print(REGLA_CORRECTA)
 
-            # Agrega nueva regla si quedan reglas por cumplir
+            # Agrega una nueva regla
             if len(reglas_aplicadas) < len(reglas):
                 reglas_aplicadas.append(reglas[len(reglas_aplicadas)])
                 print(NUEVA_REGLA, reglas_aplicadas[-1][0], "\n")
