@@ -1,3 +1,0 @@
-cd "C:\Users\sebae\OneDrive\Escritorio\ThePasswordGame"
-
-python -m unittest test_reglas.py
