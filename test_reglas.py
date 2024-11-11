@@ -8,6 +8,7 @@ from reglas.tres_repetidos import tiene_tres_caracteres_repetidos
 from reglas.acertijo_numero import contiene_numero_acertijo
 from reglas.color_hex import contiene_color_hex
 from reglas.numero_romano import contiene_numero_romano
+from reglas.principio_y_fin import tiene_principio_y_fin
 
 
 class TestReglas(unittest.TestCase):
@@ -50,6 +51,11 @@ class TestReglas(unittest.TestCase):
     def test_regla9(self):
         self.assertTrue(contiene_numero_romano("PasswordXXVI"))
         self.assertFalse(contiene_numero_romano("PasswordMXV"))
+
+    def test_regla10(self):
+        self.assertTrue(tiene_principio_y_fin("1PasswordF"))
+        self.assertFalse(tiene_principio_y_fin("Password1"))
+        self.assertFalse(tiene_principio_y_fin("Password"))
 
 
 if __name__ == "__main__":

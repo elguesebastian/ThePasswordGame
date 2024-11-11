@@ -7,6 +7,7 @@ from reglas.tres_repetidos import tiene_tres_caracteres_repetidos
 from reglas.acertijo_numero import contiene_numero_acertijo
 from reglas.color_hex import contiene_color_hex
 from reglas.numero_romano import contiene_numero_romano
+from reglas.principio_y_fin import tiene_principio_y_fin
 from funciones import jugar
 
 # Llamado a las reglas
@@ -21,10 +22,12 @@ reglas = [
     ("Debe contener algun mes del año", contiene_mes),
     ("Debe tener una secuencia de tres letras iguales seguidas",
      tiene_tres_caracteres_repetidos),
-    ("El doble de 3 más la mitad de 8, menos 5", contiene_numero_acertijo),
     ("Contener el color blanco o el color negro en hexadecimal",
      contiene_color_hex),
-    ("Tiene que contener el 26 en numero romano", contiene_numero_romano)
+    ("Tiene que contener el 26 en numero romano", contiene_numero_romano),
+    ("El doble de 3 más la mitad de 8, menos 5", contiene_numero_acertijo),
+    ("La contraseña debe comenzar con un numero y finalizar con una letra",
+     tiene_principio_y_fin)
 ]
 
 # Inicia el juego
