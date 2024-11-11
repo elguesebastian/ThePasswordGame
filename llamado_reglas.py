@@ -1,5 +1,6 @@
 from reglas.mas_8_y_mayuscula import tiene_ocho_y_mayuscula
 from reglas.simbolo_y_numero import tiene_simbolo_y_numero
+from reglas.colores import contiene_color
 from reglas.suma_numeros import suma_mayor_20
 from reglas.jugador_campeon import contiene_jugador_campeon
 from reglas.mes_año import contiene_mes
@@ -15,6 +16,8 @@ reglas = [
      tiene_ocho_y_mayuscula),
     ("Debe contener al menos un número y un símbolo (!, @, etc.)",
      tiene_simbolo_y_numero),
+    ("La contraseña debe tener un color primario o secundario",
+     contiene_color),
     ("La suma de los números debe ser mayor a 20", suma_mayor_20),
     ("Contener el apellido de un campeón del mundo de la "
      "selección argentina", contiene_jugador_campeon),

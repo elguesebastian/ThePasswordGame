@@ -1,6 +1,6 @@
 from colorama import Fore, Back, Style
 
-# Mensajes de inicio y bienvenida
+# Mensajes de inicio
 BIENVENIDA = Fore.CYAN + Back.BLACK + Style.BRIGHT + "\nThe Password Game:"
 INTRODUCCION = (
     Fore.CYAN + Back.BLACK + Style.BRIGHT +
@@ -30,10 +30,10 @@ ERROR_CONTRASENA = (
 )
 REINTENTO = "Por favor, inténtalo de nuevo.\n"
 
-# Mensajes de ronda
+# Mensaje para la ronda
 RONDA = Fore.WHITE + Style.BRIGHT + "\nRonda {}:"
 
 
-# Función para mostrar el error específico de reglas
+# Función para mostrar el error
 def mostrar_error_regla(error):
     return Fore.RED + f"- {error}"

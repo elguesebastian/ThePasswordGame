@@ -1,6 +1,7 @@
 import unittest
 from reglas.mas_8_y_mayuscula import tiene_ocho_y_mayuscula
 from reglas.simbolo_y_numero import tiene_simbolo_y_numero
+from reglas.colores import contiene_color
 from reglas.suma_numeros import suma_mayor_20
 from reglas.jugador_campeon import contiene_jugador_campeon
 from reglas.mes_año import contiene_mes
@@ -24,35 +25,40 @@ class TestReglas(unittest.TestCase):
         self.assertFalse(tiene_simbolo_y_numero("Password@"))
 
     def test_regla3(self):
+        self.assertTrue(contiene_color("Passwordrojo"))
+        self.assertFalse(contiene_color("PasswordMarron"))
+        self.assertFalse(contiene_color("PasswordNegro"))
+
+    def test_regla4(self):
         self.assertTrue(suma_mayor_20("Password999"))
         self.assertFalse(suma_mayor_20("Password5555"))
         self.assertFalse(suma_mayor_20("Password95"))
 
-    def test_regla4(self):
+    def test_regla5(self):
         self.assertTrue(contiene_jugador_campeon("PasswordMessi"))
         self.assertFalse(contiene_jugador_campeon("PasswordLanzini"))
 
-    def test_regla5(self):
+    def test_regla6(self):
         self.assertTrue(contiene_mes("PasswordMayo"))
         self.assertFalse(contiene_mes("Password"))
 
-    def test_regla6(self):
+    def test_regla7(self):
         self.assertTrue(tiene_tres_caracteres_repetidos("PasswordAAA"))
         self.assertFalse(tiene_tres_caracteres_repetidos("PasswordAA"))
 
-    def test_regla7(self):
+    def test_regla8(self):
         self.assertTrue(contiene_numero_acertijo("Password5"))
         self.assertFalse(contiene_numero_acertijo("Password3"))
 
-    def test_regla8(self):
+    def test_regla9(self):
         self.assertTrue(contiene_color_hex("Password#000000"))
         self.assertFalse(contiene_color_hex("Password#00f0ff"))
 
-    def test_regla9(self):
+    def test_regla10(self):
         self.assertTrue(contiene_numero_romano("PasswordXXVI"))
         self.assertFalse(contiene_numero_romano("PasswordMXV"))
 
-    def test_regla10(self):
+    def test_regla11(self):
         self.assertTrue(tiene_principio_y_fin("1PasswordF"))
         self.assertFalse(tiene_principio_y_fin("Password1"))
         self.assertFalse(tiene_principio_y_fin("Password"))
